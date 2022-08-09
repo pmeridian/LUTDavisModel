@@ -1,0 +1,133 @@
+#  *********************************************************************
+#  * DISCLAIMER                                                        *
+#  *                                                                   *
+#  * Neither the authors of this software system, nor their employing  *
+#  * institutes, nor the agencies providing financial support for this *
+#  * work make any representation or warranty, express or implied,     *
+#  * regarding this software system or assume any liability for its    *
+#  * use.                                                              *
+#  *                                                                   *
+#  * This code implementation is the intellectual property of the      *
+#  * OpenGATE collaboration.                                           *
+#  * By copying, distributing or modifying the Program (or any work    *
+#  * based on the Program) you indicate your acceptance of this        *
+#  * statement, and all its terms.                                     *
+#  *********************************************************************
+
+
+# === optical system ===
+
+/gate/world/daughters/name                      OpticalSystem
+/gate/world/daughters/insert                    box
+/gate/OpticalSystem/geometry/setXLength         10.0 cm
+/gate/OpticalSystem/geometry/setYLength         10.0 cm
+/gate/OpticalSystem/geometry/setZLength         20.0 cm
+/gate/OpticalSystem/placement/setTranslation    0 0 0.0 cm
+/gate/OpticalSystem/setMaterial                 Air
+
+#/gate/OpticalSystem/daughters/name              OpticalTop
+#/gate/OpticalSystem/daughters/insert            box
+#/gate/OpticalTop/geometry/setXLength               3. mm
+#/gate/OpticalTop/geometry/setYLength               1. mm
+#/gate/OpticalTop/geometry/setZLength               56 mm
+#/gate/OpticalTop/placement/setTranslation          0 2 28 mm
+#/gate/OpticalTop/setMaterial                       Air
+#/gate/OpticalTop/vis/setColor                      blue
+#/gate/OpticalTop/vis/forceSolid
+
+/gate/OpticalSystem/daughters/name              crystal
+/gate/OpticalSystem/daughters/insert            box
+/gate/crystal/geometry/setXLength               3. mm
+/gate/crystal/geometry/setYLength               3. mm
+/gate/crystal/geometry/setZLength               56 mm
+/gate/crystal/placement/setTranslation          0 0 28 mm
+/gate/crystal/setMaterial                       LSO
+/gate/crystal/vis/setColor                      red
+/gate/crystal/vis/forceSolid
+/gate/crystal/repeaters/insert                    cubicArray
+/gate/crystal/cubicArray/setRepeatNumberX         5
+/gate/crystal/cubicArray/setRepeatNumberY         1
+/gate/crystal/cubicArray/setRepeatNumberZ         1
+/gate/crystal/cubicArray/setRepeatVector          3.1 0 0 mm
+/gate/crystal/vis/forceSolid
+/gate/systems/OpticalSystem/crystal/attach      crystal
+/gate/crystal/attachCrystalSD
+
+/gate/OpticalSystem/daughters/name             grease
+/gate/OpticalSystem/daughters/insert           box
+/gate/grease/geometry/setXLength               15.5 mm
+/gate/grease/geometry/setYLength               3.3 mm
+/gate/grease/geometry/setZLength               0.1 mm
+/gate/grease/placement/setTranslation          0 0 -0.05 mm
+/gate/grease/setMaterial                       Grease
+/gate/grease/vis/setColor                      green
+/gate/grease/vis/forceSolid
+/gate/grease/attachCrystalSD
+
+/gate/OpticalSystem/daughters/name             grease1
+/gate/OpticalSystem/daughters/insert           box
+/gate/grease1/geometry/setXLength               15.5 mm
+/gate/grease1/geometry/setYLength               3.3 mm
+/gate/grease1/geometry/setZLength               0.1 mm
+/gate/grease1/placement/setTranslation          0 0 56.05 mm
+/gate/grease1/setMaterial                       Grease
+/gate/grease1/vis/setColor                      green
+/gate/grease1/vis/forceSolid
+/gate/grease1/attachCrystalSD
+
+/gate/OpticalSystem/daughters/name             window
+/gate/OpticalSystem/daughters/insert           box
+/gate/window/geometry/setXLength               15.5 mm	
+/gate/window/geometry/setYLength               3.1 mm
+/gate/window/geometry/setZLength               0.02 mm
+/gate/window/placement/setTranslation          0 0 -0.11 mm
+/gate/window/setMaterial                       Quartz
+/gate/window/vis/setColor                      blue
+/gate/window/vis/forceSolid
+/gate/window/attachCrystalSD
+
+/gate/OpticalSystem/daughters/name             window1
+/gate/OpticalSystem/daughters/insert           box
+/gate/window1/geometry/setXLength               15.5 mm
+/gate/window1/geometry/setYLength               3.1 mm
+/gate/window1/geometry/setZLength               0.02 mm
+/gate/window1/placement/setTranslation          0 0 56.11 mm
+/gate/window1/setMaterial                       Quartz
+/gate/window1/vis/setColor                      blue
+/gate/window1/vis/forceSolid
+/gate/window1/attachCrystalSD
+
+/gate/OpticalSystem/daughters/name              pixel
+/gate/OpticalSystem/daughters/insert            box
+/gate/pixel/geometry/setXLength           	3.0  mm
+/gate/pixel/geometry/setYLength           	3.1  mm
+/gate/pixel/geometry/setZLength           	1. mm
+/gate/pixel/setMaterial                  	G4_SILICON_DIOXIDE                 
+/gate/pixel/placement/setTranslation      	0 0 -0.62 mm
+/gate/pixel/vis/setColor                  	yellow
+/gate/pixel/repeaters/insert                    cubicArray
+/gate/pixel/cubicArray/setRepeatNumberX         5
+/gate/pixel/cubicArray/setRepeatNumberY         1
+/gate/pixel/cubicArray/setRepeatNumberZ         1
+/gate/pixel/cubicArray/setRepeatVector          3.1 0 0 mm
+/gate/pixel/vis/forceSolid
+/gate/pixel/attachCrystalSD
+/gate/systems/OpticalSystem/pixel/attach        pixel
+
+/gate/OpticalSystem/daughters/name              pixel1
+/gate/OpticalSystem/daughters/insert            box
+/gate/pixel1/geometry/setXLength           	3.0  mm
+/gate/pixel1/geometry/setYLength           	3.1  mm
+/gate/pixel1/geometry/setZLength           	1. mm
+/gate/pixel1/setMaterial                  	G4_SILICON_DIOXIDE                 
+/gate/pixel1/placement/setTranslation      	0 0 56.62 mm
+/gate/pixel1/vis/setColor                  	yellow
+/gate/pixel1/vis/forceSolid
+/gate/pixel1/repeaters/insert                   cubicArray
+/gate/pixel1/cubicArray/setRepeatNumberX        5
+/gate/pixel1/cubicArray/setRepeatNumberY        1
+/gate/pixel1/cubicArray/setRepeatNumberZ        1
+/gate/pixel1/cubicArray/setRepeatVector         3.1 0 0 mm
+/gate/pixel1/attachCrystalSD
+/gate/pixel1/vis/forceSolid
+
